@@ -9,8 +9,12 @@
     
 </head>
 <body>
+
+    @if(session('status'))
+     <div class="status">{{  session('status')  }}</div>
+     @endif
     
-      {{  $slot  }}
+  {{  $slot  }}
 
 </body>
 </html>
