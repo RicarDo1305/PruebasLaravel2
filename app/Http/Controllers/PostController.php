@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SavePostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,23 +22,28 @@ class PostController extends Controller
 
     public function create(){
 
-        return view('posts.create');
+        return view('posts.create',  ['post' => new Post]);
     }
 
-    public function store(Request $request){
+    public function store(SavePostRequest $request){
 
-        $request->validate([
-            'title' => ['required', 'min:4'],
-            'body' => ['required'],  
-        ]);
 
-        $post = new Post();
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
-        $post->save();
+        Post::create($request->validated());
 
-        session()->flash('status', 'Post Created');
-
-        return to_route('posts.index');
+        return to_route('posts.index')->with('status', 'Post Created');
     }
+
+    public function edit(Post $post){
+
+       return view('posts.edit', ['post' => $post]);
+    }
+
+    public function update(SavePostRequest $request, Post $post){
+
+        $post->update($request->validated());
+
+        return to_route('posts.show', $post)->with('status', 'Post Updated');
+
+        
+     }
 }
