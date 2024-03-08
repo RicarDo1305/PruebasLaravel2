@@ -1,9 +1,10 @@
 <x-layouts.app title="Blog" metaDescription="Blog meta description">
 
 
-
-    <h1>Blog</h1>
+    <header >
+    <h1 class="my-4 font-serif text-3xl text-center text-sky-600 dark:text-sky-500">Blog</h1>
     <a href="{{ route('posts.create')  }}">Create a new post</a>
+    </header>
 
     @foreach($posts as $post)
     <div style="display: flex; align-items: baseline;">

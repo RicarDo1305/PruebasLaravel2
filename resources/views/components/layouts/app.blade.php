@@ -8,7 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
 </head>
-<body>
+<body class="bg-slate-200">
 
     <x-layouts.navigation />
 
