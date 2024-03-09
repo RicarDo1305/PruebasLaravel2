@@ -8,12 +8,13 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
 </head>
-<body class="bg-slate-200">
+<body class="antialiased bg-slate-300">
 
     <x-layouts.navigation />
 
     @if(session('status'))
-     <div class="status">{{  session('status')  }}</div>
+     <div class="max-screen-xl px-3 py-2 mx-auto font-bold text-center
+     text-white sm:px-6 lg:px-8 bg-emerald-500">{{  session('status')  }}</div>
      @endif
     
   {{  $slot  }}

@@ -1,16 +1,27 @@
-<label>
-       Title<br>
-      <input name="title" type="text" value="{{  old('title', $post->title)  }}">
+<div class="space-y-4">
+<label class="flex flex-col">
+
+      <span class="font-serif text-slate-300">Title</span>
+
+      <input class="rounded-md shadow-sm border-slate-300 text-slate-600
+        focus:ring focus:ring-slate-300
+        focus:ring-opacity-50 focus:border-slate-300"
+          name="title" type="text" value="{{  old('title', $post->title)  }}">
+
        @error('title') 
-       <br>
-       <small style="color: red">{{  $message  }}</small>
+       <small class="font-bold text-red-500/80">{{  $message  }}</small>
        @enderror
-   </label><br>
-   <label>
-       Body<br>
-      <textarea name="body">{{  old('body', $post->body)  }}</textarea>
+   </label>
+   <label class="flex flex-col">
+
+      <span class="font-serif text-slate-300"">Body</span>
+
+      <textarea class="rounded-md shadow-sm border-slate-300 text-slate-600
+        focus:ring focus:ring-slate-300 focus:ring-opacity-50 focus:border-slate-300" 
+         name="body">{{  old('body', $post->body)  }}</textarea>
+
       @error('body') 
-       <br>
-       <small style="color: red">{{  $message  }}</small>
+       <small class="font-bold text-red-500/80">{{  $message  }}</small>
        @enderror
-   </label><br>
+   </label>
+</div>
